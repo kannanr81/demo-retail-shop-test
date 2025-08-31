@@ -1,4 +1,4 @@
-name: Multi-Region EKS Deployment
+name: pipeline-EKS-multi-region-deployment
 
 on:
   push:
@@ -26,6 +26,6 @@ jobs:
       - name: Trigger CodePipeline (us-east-1)
         run: |
           aws codepipeline start-pipeline-execution \
-            --name pipeline-EKS-deployment \
+            --name pipeline-EKS-multi-region-deployment \
             --region us-east-1
 

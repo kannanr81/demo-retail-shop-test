@@ -10,8 +10,6 @@ env:
 
 phases:
   install:
-    runtime-versions:
-      docker: 20
     commands:
       - echo "Installing Helm..."
       - curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
@@ -55,4 +53,3 @@ phases:
       - kubectl get nodes || { echo 'Failed to connect to EKS Cluster 2'; exit 1; }
       - sed "s|REPO_URI|${IMAGE_REPO_2}|" demo-app/values.yaml > values-aps1.yaml
       - helm upgrade --install demo-app ./demo-app -f values-aps1.yaml --namespace default --wait
-
